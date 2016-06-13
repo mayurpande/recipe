@@ -23,3 +23,8 @@ $recipe1->addInstruction("This is my first instruction");
 $recipe1->addInstruction("This is my second instruction");
 
 echo implode("\n",$recipe1->getInstructions());
+
+$recipe1->addTag("Breakfast");
+$recipe1->addTag("Main Course");
+
+echo implode(", ",$recipe1->getTags());
