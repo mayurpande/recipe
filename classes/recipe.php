@@ -8,7 +8,12 @@ class Recipe
 	public $yield;
 	public $tag = array();
 	public $source = "Alena Holligan";
-	
+
+	public function setTitle($title)
+	{
+		$this->title = ucwords($title);
+	}	
+
 
 	public function displayRecipe()
 	{
@@ -30,7 +35,7 @@ class Recipe
 $recipe1 = new Recipe();
 //access properties with object created
 $recipe1->source = "Grandma Holligan";
-$recipe1->title = "My first recipe";
+$recipe1->setTitle("my first recipe");
 
 //new object of class
 $recipe2 = new Recipe();
