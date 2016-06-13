@@ -15,4 +15,7 @@ class Recipe
 //after creating the class a new object can be instansiated and stored in a variable
 $recipe1 = new Recipe();
 
-var_dump($recipe1);
+//access properties with object created
+echo $recipe1->source;
+$recipe1->source = "Grandma Holligan";
+echo $recipe1->source;
