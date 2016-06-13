@@ -50,7 +50,19 @@ class Recipe
 	{
 		return $this->ingredients;
 	}	
-	
+
+	public function addInstruction($string)
+	{
+		//we will add our instructions one at a time, we will accept a string argument
+		//then we can add this new instruction to our array of new instructions
+		$this->instructions[] = $string;
+	}
+
+	public function getInstructions()
+	{	
+		//return this instructions
+		return $this->instructions;
+	}
 	public function displayRecipe()
 	{
 		/*within the method we describe the action we want to perform
