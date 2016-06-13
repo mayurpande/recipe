@@ -2,13 +2,21 @@
 
 class Recipe
 {
-	public $title;
+	private $title;
 	public $ingreadients = array();
 	public $instructions = array();
 	public $yield;
 	public $tag = array();
 	public $source = "Alena Holligan";
-	
+
+	public function setTitle($title)
+	{
+		$this->title = ucwords($title);
+	}	
+	public function getTitle()
+	{
+		return $this->title;
+	}
 
 	public function displayRecipe()
 	{
@@ -30,14 +38,15 @@ class Recipe
 $recipe1 = new Recipe();
 //access properties with object created
 $recipe1->source = "Grandma Holligan";
-$recipe1->title = "My first recipe";
+$recipe1->setTitle("my first recipe");
 
 //new object of class
 $recipe2 = new Recipe();
 $recipe2->source = "Betty Crocker";
-$recipe2->title = "My Second recipe";
+$recipe2->setTitle("My Second recipe");
 
 //now to use displayRecipe method we call it just like a regular fn
 //only difference is that we first need to reference the object that it belongs to
+echo $recipe1->getTitle();
 echo $recipe1->displayRecipe();
 echo $recipe2->displayRecipe();
