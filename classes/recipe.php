@@ -2,7 +2,7 @@
 
 class Recipe
 {
-	public $title;
+	private $title;
 	public $ingreadients = array();
 	public $instructions = array();
 	public $yield;
@@ -40,7 +40,7 @@ $recipe1->setTitle("my first recipe");
 //new object of class
 $recipe2 = new Recipe();
 $recipe2->source = "Betty Crocker";
-$recipe2->title = "My Second recipe";
+$recipe2->setTitle("My Second recipe");
 
 //now to use displayRecipe method we call it just like a regular fn
 //only difference is that we first need to reference the object that it belongs to
