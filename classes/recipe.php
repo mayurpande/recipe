@@ -44,7 +44,12 @@ class Recipe
 			'amount' => $amount,
 			'measure' => strtolower($measure)
 		);
-	}		
+	}	
+	
+	public function getIngredients()
+	{
+		return $this->ingredients;
+	}	
 	
 	public function displayRecipe()
 	{
