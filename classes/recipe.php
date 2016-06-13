@@ -74,6 +74,28 @@ class Recipe
 		return $this->tags;
 	}
 
+	public function setYield($yield)
+	{
+		$this->yield = $yield;
+	}
+
+	public function getYield()
+	{
+		return $this->yield;
+	}
+
+	public function setSource($source)
+	{
+		$this->source = ucwords($source);
+	}
+
+	public function getSource()
+	{
+		return $this->source;
+	}
+
+
+
 	public function displayRecipe()
 	{
 		/*within the method we describe the action we want to perform
