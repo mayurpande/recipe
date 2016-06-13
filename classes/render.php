@@ -2,7 +2,17 @@
 
 class Render
 {
+	
+	public static function listIngredients($ingredients)
+	{	
+		$output = "";
+		foreach($ingredients as $ing){
+			$output .= $ing['amount'] . " " . $ing['measure'] . " " . $ing['item'];
+			$output .= "\n";
+		}
+		return $output;
 
+	}
 	//pass this a recipe object
 	public static function displayRecipe($recipe)
 	{
@@ -20,15 +30,12 @@ class Render
 		//as we made title private, it is no longer in the same class so not accesible.
 		//so we need to specify the getTitle method here
 		$output = "";
-
 		$output .=  $recipe->getTitle() . " by " . $recipe->getSource();
 		$output .= "\n";
 		$output .= implode(", ",$recipe->getTags());
 		$output .= "\n\n";
-		foreach($recipe->getIngredients() as $ing){
-			$output .= $ing['amount'] . " " . $ing['measure'] . " " . $ing['item'];
-			$output .= "\n";
-		}
+		//to call static method within same class use keyword self
+		$output .= self::listIngredients($recipe->getIngredients());
 		$output .= "\n";
 		$output .= implode("\n",$recipe->getInstructions());
 		$output .= "\n";
