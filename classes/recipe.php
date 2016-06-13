@@ -3,11 +3,11 @@
 class Recipe
 {
 	private $title;
-	public $ingreadients = array();
-	public $instructions = array();
-	public $yield;
-	public $tag = array();
-	public $source = "Alena Holligan";
+	private $ingreadients = array();
+	private $instructions = array();
+	private $yield;
+	private $tag = array();
+	private $source = "Alena Holligan";
 	//define acceptable measurements
 	private $measurements = array(
 		'tsp',
