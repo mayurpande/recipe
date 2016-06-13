@@ -19,7 +19,21 @@ class Render
 
 		//as we made title private, it is no longer in the same class so not accesible.
 		//so we need to specify the getTitle method here
-		return $recipe->getTitle() . " by " . $recipe->getSource();
+		$output = "";
+
+		$output .=  $recipe->getTitle() . " by " . $recipe->getSource();
+		$output .= "\n";
+		$output .= implode(", ",$recipe->getTags());
+		$output .= "\n\n";
+		foreach($recipe->getIngredients() as $ing){
+			$output .= $ing['amount'] . " " . $ing['measure'] . " " . $ing['item'];
+			$output .= "\n";
+		}
+		$output .= "\n";
+		$output .= implode("\n",$recipe->getInstructions());
+		$output .= "\n";
+		$output .= $recipe->getYield();
+		return $output;
 	}
 
 }
