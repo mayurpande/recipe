@@ -1,5 +1,7 @@
 <?php
 include "classes/recipe.php";
+include "classes/render.php";
+
 //after creating the class a new object can be instansiated and stored in a variable
 $recipe1 = new Recipe();
 //access properties with object created
@@ -14,21 +16,18 @@ $recipe2->setTitle("My Second recipe");
 
 //now to use displayRecipe method we call it just like a regular fn
 //only difference is that we first need to reference the object that it belongs to
-echo $recipe1->getTitle();
-foreach($recipe1->getIngredients() as $ing){
-	echo "\n" . $ing["amount"] . " " . $ing["measure"] . " " . $ing["item"];
-}
-
 $recipe1->addInstruction("This is my first instruction");
 $recipe1->addInstruction("This is my second instruction");
-
-echo implode("\n",$recipe1->getInstructions());
 
 $recipe1->addTag("Breakfast");
 $recipe1->addTag("Main Course");
 
-echo implode(", ",$recipe1->getTags());
-
 $recipe1->setYield("6 servings");
-echo $recipe1->getYield();
-echo $recipe1->getSource();
+
+/*
+ * Now we are ready to call our static method
+ * To use a static method, we specify the class, then double colons
+ * and then the method
+ */
+
+echo Render::displayRecipe($recipe1);
