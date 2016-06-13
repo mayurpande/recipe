@@ -13,7 +13,10 @@ class Recipe
 	{
 		$this->title = ucwords($title);
 	}	
-
+	public function getTitle()
+	{
+		return $this->title;
+	}
 
 	public function displayRecipe()
 	{
@@ -44,5 +47,6 @@ $recipe2->setTitle("My Second recipe");
 
 //now to use displayRecipe method we call it just like a regular fn
 //only difference is that we first need to reference the object that it belongs to
+echo $recipe1->getTitle();
 echo $recipe1->displayRecipe();
 echo $recipe2->displayRecipe();
