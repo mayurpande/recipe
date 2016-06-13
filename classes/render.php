@@ -16,7 +16,10 @@ class Render
 		 * The $this keyword, indicates that we want to use the object's own properties or
 		 * methods and allows us to have access to them, in the class scope
 		 */
-		return $this->title . " by " . $recipe->source;
+
+		//as we made title private, it is no longer in the same class so not accesible.
+		//so we need to specify the getTitle method here
+		return $recipe->getTitle() . " by " . $recipe->getSource();
 	}
 
 }
