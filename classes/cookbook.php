@@ -18,3 +18,8 @@ echo $recipe1->getTitle();
 foreach($recipe1->getIngredients() as $ing){
 	echo "\n" . $ing["amount"] . " " . $ing["measure"] . " " . $ing["item"];
 }
+
+$recipe1->addInstruction("This is my first instruction");
+$recipe1->addInstruction("This is my second instruction");
+
+echo implode("\n",$recipe1->getInstructions());
