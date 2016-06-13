@@ -63,6 +63,17 @@ class Recipe
 		//return this instructions
 		return $this->instructions;
 	}
+
+	public function addTag($tag)
+	{
+		$this->tags[] = strtolower($tag);
+	}
+
+	public function getTags()
+	{
+		return $this->tags;
+	}
+
 	public function displayRecipe()
 	{
 		/*within the method we describe the action we want to perform
