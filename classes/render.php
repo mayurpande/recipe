@@ -4,7 +4,7 @@ class Render
 {
 
 	//pass this a recipe object
-	public function displayRecipe($recipe)
+	public static function displayRecipe($recipe)
 	{
 		/*within the method we describe the action we want to perform
 		 * for our methods to be really useful. we need them to have access
