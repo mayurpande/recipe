@@ -31,4 +31,4 @@ echo $recipe1;
  * and then the method
  */
 
-echo Render::displayRecipe($recipe1);
+//echo Render::displayRecipe($recipe1);
