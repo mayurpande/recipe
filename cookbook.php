@@ -24,6 +24,7 @@ $recipe1->addTag("Main Course");
 
 $recipe1->setYield("6 servings");
 
+echo $recipe1;
 /*
  * Now we are ready to call our static method
  * To use a static method, we specify the class, then double colons
