@@ -76,4 +76,27 @@ class RecipeCollection
 		return $taggedRecipes;
 		
 	}
+
+	//we want to create a master list of ingredients
+	public function getCombinedIngredients()
+	{
+		//initialise an ingredients array
+		$ingredients = array();
+
+		//we are going to want to loop through each recipe in this collection
+		//then loop through all the ingedients in each recipe
+		foreach($this->recipes as $recipe){
+			foreach($recipe->getIngredients() as $ing){
+				//we will add the item as the key in our array
+				//then we will add an inner array element to that ingredient
+				$ingredients[$ing["item"]] = array(
+					$ing["amount"],
+					$ing["measure"]
+				);
+			}
+		}
+		//now we can return the ingredients
+		return $ingredients;
+
+	}
 }
