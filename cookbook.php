@@ -30,5 +30,6 @@ echo $recipe1;
  * To use a static method, we specify the class, then double colons
  * and then the method
  */
-
-echo Render::displayRecipe($recipe1);
+//since we don't have an object we can
+echo new Render();
+//echo Render::displayRecipe($recipe1);
