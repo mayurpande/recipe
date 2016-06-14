@@ -20,9 +20,32 @@ class Recipe
 		'quart',
 		'gallon'
 	);
+
+	//all magic methods start with double underscore
+	//if we want someone to set be able to create a recipe without adding a title
+	//right away we would need to set the title default to null
+	public function __construct($title = null)
+	{
+		//call setTitle method
+		$this->setTitle($title);
+
+	}
+
+	public function __toString()
+	{
+		//for the recipe if we call the object directly we will want to know what recipe
+		//this is, so lets return the title 
+		return $this->getTitle();
+	}
 	public function setTitle($title)
 	{
-		$this->title = ucwords($title);
+		if(empty($title)){
+			//if condition is true set title null
+			$this->title = null;
+		}else{
+			$this->title = ucwords($title);
+		}
+		
 	}	
 	public function getTitle()
 	{
