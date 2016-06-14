@@ -7,7 +7,7 @@ class Render
 		
 		//only want to say what methods are available, but we will change this so it tells us
 		//which type of object we are using 
-		$output .= "\nThe following methods are available for " . __CLASS__ . " objects: \n";
+		$output = "\nThe following methods are available for " . __CLASS__ . " objects: \n";
 		//use implode
 		$output .= implode("\n", get_class_methods(__CLASS__));	
 		return $output;
