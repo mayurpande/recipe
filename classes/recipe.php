@@ -39,7 +39,27 @@ class Recipe
 		$output = "You are calling a " . __CLASS__ . " object with the title \"";
 		$output .= $this->getTitle() . "\"";
 		//for the recipe if we call the object directly we will want to know what recipe
-		//this is, so lets return the title 
+		//this is, so lets return the title
+
+		//there are two constants that reference where the file is stored
+		//the first one is file, this gives us the full path with the name
+		//we can get just the file name with combining the file with base name
+		//we could also use the fn name dir with file as well to pull only the directory path
+		//but we have another constant that you will often see, the dir or directory constant
+		//this constant gives us the full constant to the path to the file without the filename
+		$output .= "\nIt is stored in " . basename(__FILE__) . " at " . __DIR__ . ".";
+
+		//next we will show specific info about where in the class we are looking
+		//__LINE__ will tell us the current line number in the file
+		//__METHOD__ will tell us the the current method
+		$output .= "\nThis display is from line " . __LINE__ . " in method " . __METHOD__;
+		
+
+		//finally we will show a list of the methods, in case the user is looking for something
+		//this is another place where we will use a function in place with a constant. 
+		$output .= "\nThe following methods are available for objects o this class: \n";
+		//use implode
+		$output .= implode("\n", get_class_methods(__CLASS__));	
 		return $output;
 
 
