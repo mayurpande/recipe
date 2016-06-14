@@ -38,7 +38,8 @@ foreach($cookbook->filterByTag("breakfast") as $recipe){
 	$breakfast->addRecipe($recipe);
 
 }
-
+echo Render::displayRecipe($cookbook->filterById(2));
+exit;
 echo Render::listRecipes($cookbook->getRecipeTitles());
 exit;
 echo "\n\nShopping List\n\n";
@@ -49,7 +50,7 @@ exit;
 //now render breakfast recipes instaed
 echo Render::listRecipes($breakfast->getRecipeTitles());
 exit;
-echo Render::displayRecipe($lemon_chicken);
+
 
 
 

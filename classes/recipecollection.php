@@ -128,6 +128,6 @@ class RecipeCollection
 	//now we know id of recipe, build function to filter by id
 	public function filterById($id)
 	{
-		return $this->recipies[$id];
+		return $this->recipes[$id];
 	}
 }
