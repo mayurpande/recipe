@@ -30,7 +30,6 @@ class Recipe
 		$this->setTitle($title);
 
 	}
-
 	public function __toString()
 	{
 		
@@ -64,6 +63,7 @@ class Recipe
 
 
 	}
+
 	public function setTitle($title)
 	{
 		if(empty($title)){
