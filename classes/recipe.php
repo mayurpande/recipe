@@ -30,6 +30,13 @@ class Recipe
 		$this->setTitle($title);
 
 	}
+
+	public function __toString()
+	{
+		//for the recipe if we call the object directly we will want to know what recipe
+		//this is, so lets return the title 
+		return $this->getTitle();
+	}
 	public function setTitle($title)
 	{
 		if(empty($title)){
