@@ -39,6 +39,11 @@ foreach($cookbook->filterByTag("breakfast") as $recipe){
 
 }
 
+echo "\n\nShopping List\n\n";
+//use shopping list on our breakfast collection
+// we render out listShopping and we pass it our breakfast, getCombinedIngredients
+echo Render::listShopping($breakfast->getCombinedIngredients());
+exit;
 //now render breakfast recipes instaed
 echo Render::listRecipes($breakfast->getRecipeTitles());
 exit;
