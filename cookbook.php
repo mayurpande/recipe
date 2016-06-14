@@ -27,7 +27,20 @@ $cookbook->addRecipe($corn_beef_hash);
 $cookbook->addRecipe($granola);
 $cookbook->addRecipe($spicy_omelette);
 $cookbook->addRecipe($scones);
-echo Render::listRecipes($cookbook->getRecipeTitles());
+
+//create a new recipe collection
+//this is going to be for any recipe tagged with breakfast
+$breakfast = new RecipeCollection("Favourite Breakfasts");
+
+//then we can loop through the breakfast recipes after we filter by tag
+foreach($cookbook->filterByTag("breakfast") as $recipe){
+	//add recipe to breakfast collection
+	$breakfast->addRecipe($recipe);
+
+}
+
+//now render breakfast recipes instaed
+echo Render::listRecipes($breakfast->getRecipeTitles());
 exit;
 echo Render::displayRecipe($lemon_chicken);
 
