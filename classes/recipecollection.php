@@ -76,4 +76,52 @@ class RecipeCollection
 		return $taggedRecipes;
 		
 	}
+
+	//we want to create a master list of ingredients
+	public function getCombinedIngredients()
+	{
+		//initialise an ingredients array
+		$ingredients = array();
+
+		//we are going to want to loop through each recipe in this collection
+		//then loop through all the ingedients in each recipe
+		foreach($this->recipes as $recipe){
+			foreach($recipe->getIngredients() as $ing){
+				//we are going to do a few more things to the item so lets add that to a new variable
+				$item = $ing["item"];
+				//first thing we want to check is if our item contains a comma
+				//if so we only want to use the part before the comma
+				if(strpos($item, ",")){
+					//if comma found we only want item to be first part of string
+					$item = strstr($item,",",true);
+				}
+				//now we want to check it this item is already in the array as its singular 
+				//or plural version
+				// so will check it item with an s is in our ingredients array
+				// we us in_array we pass it what we want to look for and then we pass it the array
+				if(in_array($item."s",$ingredients)){
+					//if so then I want to use item plus s, so I can use item
+					//and then concatenate the s
+					$item.="s";
+				}else if (in_array(substr($item,0,-1), $ingredients)){ //removes last character of string
+					//next we want to check else if the singular version is in our array
+					//and if its found we want to use that
+					$item = substr($item,0,-1);
+				}
+				//after our item is set in one of these three ways
+				//we can add that to the ingredient just like we were doing before
+				//but this we will use our item variable
+
+				//we will add the item as the key in our array
+				//then we will add an inner array element to that ingredient
+				$ingredients[$item] = array(
+					$ing["amount"],
+					$ing["measure"]
+				);
+			}
+		}
+		//now we can return the ingredients
+		return $ingredients;
+
+	}
 }
