@@ -42,6 +42,19 @@ class RecipeCollection
 		return $this->recipes;
 	}
 
-	
+	//method to grab the recipe titles
+	public function getRecipeTitles()
+	{
+		//since each of the recipes is an object that contains much more than just the title
+		//we need to grab just the title, start by initializing titles array
+		$titles = array();
+		//loop through each of the recipes in the collection and grab the title
+		foreach($this->recipes as $recipe){
+			//to our titles array we add recipe->getTitle
+			$titles[] = $recipe->getTitle();
+		}
+		//then we can return our titles
+		return $titles;
+	}	
 
 }

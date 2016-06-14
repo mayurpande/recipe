@@ -15,6 +15,17 @@ class Render
 
 	}
 
+	//method to display list of titles from getRecipeTitle from recipeCollection class
+	public static function listRecipes($titles)
+	{
+		//before we display the recipes we should sort the titles
+		//we can use asort to sort the titles in the array
+		asort($titles);
+
+		//finally we want to return a list of titles, make use of implode
+		return implode("\n",$titles);
+	}
+
 	public static function listIngredients($ingredients)
 	{	
 		$output = "";
