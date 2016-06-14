@@ -33,9 +33,16 @@ class Recipe
 
 	public function __toString()
 	{
+		
+		//make use of magic constants, give useful info
+		//magic constant class gives name of class
+		$output = "You are calling a " . __CLASS__ . " object with the title \"";
+		$output .= $this->getTitle() . "\"";
 		//for the recipe if we call the object directly we will want to know what recipe
 		//this is, so lets return the title 
-		return $this->getTitle();
+		return $output;
+
+
 	}
 	public function setTitle($title)
 	{
