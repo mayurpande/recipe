@@ -1,7 +1,34 @@
 <?php
 include "classes/recipe.php";
 include "classes/render.php";
+include "inc/allrecipes.php";
 
+
+echo Render::displayRecipe($lemon_chicken);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ 
 //after creating the class a new object can be instansiated and stored in a variable
 $recipe1 = new Recipe("my first recipe");
 //access properties with object created
@@ -31,5 +58,8 @@ echo $recipe1;
  * and then the method
  */
 //since we don't have an object we can
-echo new Render();
+//echo new Render();
 //echo Render::displayRecipe($recipe1);
+
+
+
