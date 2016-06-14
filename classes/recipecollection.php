@@ -1,7 +1,7 @@
 <?php
 
 //create new class
-new RecipeCollection
+class RecipeCollection
 {
 	private $title;
 	private $recipes = array();
