@@ -27,7 +27,7 @@ $cookbook->addRecipe($corn_beef_hash);
 $cookbook->addRecipe($granola);
 $cookbook->addRecipe($spicy_omelette);
 $cookbook->addRecipe($scones);
-var_dump($cookbook);
+echo Render::listRecipes($cookbook->getRecipeTitles());
 exit;
 echo Render::displayRecipe($lemon_chicken);
 
