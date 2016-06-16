@@ -15,6 +15,48 @@ class Render
 
 	}
 
+	//static method to display list shopping pass in ingredient list
+	public static function listShopping($ingredient_list)
+	{ 
+		//first thing we want to do is sort on the on the key
+		//so we use ksort with our ingredient list
+		ksort($ingredient_list);
+
+		//now we are ready to return our shopping list
+		//we will use implode fn
+		//this time we want to return the keys instead of the values
+		//so we are going to use another built in function called array keys
+		return implode("\n",array_keys($ingredient_list));
+	}
+	
+	//we want to change the display of the recipe list so we want to change this in the render class
+	//lets update the list recipes method so it shows the array key for that recipe as well
+	//method to display list of titles from getRecipeTitle from recipeCollection class
+	public static function listRecipes($titles)
+	{
+		//before we display the recipes we should sort the titles
+		//we can use asort to sort the titles in the array
+		asort($titles);
+		$output = "";
+
+		//now I can use our foreach loop
+		foreach($titles as $key => $title){
+			if($output != ""){
+				$output .= "\n";	
+			}
+			//now we can use the key and value for our recipe title
+			$output .= "[$key] $title";
+		}
+		return $output;
+			
+	
+
+	}
+
+		//finally we want to return a list of titles, make use of implode
+		//return implode("\n",$titles);
+	
+
 	public static function listIngredients($ingredients)
 	{	
 		$output = "";

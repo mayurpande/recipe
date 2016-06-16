@@ -2,9 +2,59 @@
 include "classes/recipe.php";
 include "classes/render.php";
 include "inc/allrecipes.php";
+include "classes/recipecollection.php";
 
+//instansiate a cookbook object
+$cookbook = new RecipeCollection("Treehouse Recipes");
 
-echo Render::displayRecipe($lemon_chicken);
+//now we can add the recipes to our cookbook collection using the add recipe method
+$cookbook->addRecipe($lemon_chicken);
+$cookbook->addRecipe($granola_muffins);
+$cookbook->addRecipe($belgian_waffles);
+$cookbook->addRecipe($pepper_casserole);
+$cookbook->addRecipe($lasagna);
+
+$cookbook->addRecipe($dried_mushroom_ragout);
+$cookbook->addRecipe($rabbit_catalan);
+$cookbook->addRecipe($grilled_salmon_with_fennel);
+$cookbook->addRecipe($pistachio_duck);
+$cookbook->addRecipe($chili_pork);
+$cookbook->addRecipe($crab_cakes);
+$cookbook->addRecipe($beef_medallions);
+$cookbook->addRecipe($silver_dollar_cakes);
+$cookbook->addRecipe($french_toast);
+$cookbook->addRecipe($corn_beef_hash);
+$cookbook->addRecipe($granola);
+$cookbook->addRecipe($spicy_omelette);
+$cookbook->addRecipe($scones);
+
+//create a new recipe collection
+//this is going to be for any recipe tagged with breakfast
+$breakfast = new RecipeCollection("Favourite Breakfasts");
+
+//then we can loop through the breakfast recipes after we filter by tag
+foreach($cookbook->filterByTag("breakfast") as $recipe){
+	//add recipe to breakfast collection
+	$breakfast->addRecipe($recipe);
+
+}
+
+$week1 = new RecipeCollection("Meal Plan: Week 1");
+$week1->addRecipe($cookbook->filterById(2));
+$week1->addRecipe($cookbook->filterById(3));
+$week1->addRecipe($cookbook->filterById(6));
+$week1->addRecipe($cookbook->filterById(16));
+
+echo Render::listRecipes($breakfast->getRecipeTitles());
+echo "\n\nShopping List\n\n";
+//use shopping list on our breakfast collection
+// we render out listShopping and we pass it our breakfast, getCombinedIngredients
+echo Render::listShopping($week1->getCombinedIngredients());
+exit;
+//now render breakfast recipes instaed
+
+echo Render::displayRecipe($cookbook->filterById(2));
+exit;
 
 
 
