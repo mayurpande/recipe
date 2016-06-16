@@ -38,19 +38,23 @@ foreach($cookbook->filterByTag("breakfast") as $recipe){
 	$breakfast->addRecipe($recipe);
 
 }
-echo Render::displayRecipe($cookbook->filterById(2));
-exit;
-echo Render::listRecipes($cookbook->getRecipeTitles());
-exit;
+
+$week1 = new RecipeCollection("Meal Plan: Week 1");
+$week1->addRecipe($cookbook->filterById(2));
+$week1->addRecipe($cookbook->filterById(3));
+$week1->addRecipe($cookbook->filterById(6));
+$week1->addRecipe($cookbook->filterById(16));
+
+echo Render::listRecipes($breakfast->getRecipeTitles());
 echo "\n\nShopping List\n\n";
 //use shopping list on our breakfast collection
 // we render out listShopping and we pass it our breakfast, getCombinedIngredients
-echo Render::listShopping($breakfast->getCombinedIngredients());
+echo Render::listShopping($week1->getCombinedIngredients());
 exit;
 //now render breakfast recipes instaed
-echo Render::listRecipes($breakfast->getRecipeTitles());
-exit;
 
+echo Render::displayRecipe($cookbook->filterById(2));
+exit;
 
 
 
